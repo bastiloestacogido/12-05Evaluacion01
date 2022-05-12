@@ -437,7 +437,7 @@
                             <a href="https://github.com/profesorfaco/front-end">Introducción al Desarrollo Front End con HTML, CSS y JavaScript</a> de la carrera de Diseño de la Universidad de Chile. Este trabajo está "inspirado" en
                             <a href="https://graphics.reuters.com/TONGA-VOLCANO/LIGHTNING/zgpomjdbypd/">Analysing the volcanic lightning from the Tonga eruption</a>, que originalmente fue desarrollado para
                             <a href="https://graphics.reuters.com/">Reuters Graphics</a> por Manas Sharma y Simon Scarr; el trabajo se resuelve con <a href="https://getbootstrap.com/">Bootstrap</a> y
-                            <a href="https://www.chartjs.org/">Charts.js</a>, además de consultas a un <a href="https://raw.githubusercontent.com/bastiloestacogido/12-05Evaluaci-n01/main/LEB.json">JSON</a>. Este trabajo fue realizado por
+                            <a href="https://www.chartjs.org/">Charts.js</a>, además de consultas a un <a href="https://raw.githubusercontent.com/bastiloestacogido/12-05Evaluacion01/main/LEB.json">JSON</a>. Este trabajo fue realizado por
                             <a href="https://github.com/bastiloestacogido">Bastián Lobos</a>.
                         </p>
                     </div>
@@ -464,7 +464,7 @@
         <!-- Un gran script, que contiene una función asincrónica para ir a buscar un JSON con -->
         <script>
             async function todo() {
-                const consulta = await fetch("https://raw.githubusercontent.com/bastiloestacogido/12-05Evaluaci-n01/main/LEB.json");
+                const consulta = await fetch("https://raw.githubusercontent.com/bastiloestacogido/12-05Evaluacion01/main/LEB.json");
                 const data = await consulta.json();
                 console.log(data);
 
@@ -655,12 +655,12 @@
                         enchantment = enchantment + 1;
                     } else if (d.type == "Instant") {
                         instants = instants + 1;
-                    } else if (d.type.includes("Land")) {
-                        lands = lands + 1;
                     } else if (d.type == "Sorcery") {
                         sorceries = sorceries + 1;
-                    } else {
+                    } else if (d.type.includes("Basic Land")) {
                         basicLands = basicLands + 1;
+                    } else {
+                      lands = lands + 1;
                     }
                 });
 
@@ -673,7 +673,7 @@
                             {
                                 data: [cuantasBlancas, cuantasAzules, cuantasNegras, cuantasRojas, cuantasVerdes, cuantasIncoloras],
                                 label: "Los Colores de Magic",
-                                backgroundColor: ["#ECE6DF", "#CEBDB0", "#AC9098", "#6A6997", "#585783", "#2C2851"],
+                                backgroundColor: ["#FFCE9C", "#CF7862", "#A75252", "#773A4D", "#543246", "#3D203B"],
                             },
                         ],
                     },
@@ -690,7 +690,7 @@
                     type: "bar",
                     data: {
                         labels: ["Coste 0", "Coste 1", "Coste 2", "Coste 3", "Coste 4", "Coste 5", "Coste 6", "Coste 7"],
-                        datasets: [{ data: [costeMana, costeMana1, costeMana2, costeMana3, costeMana4, costeMana5, costeMana6, costeMana7], label: "Número de Cartas", backgroundColor: ["#2C2851"] }],
+                        datasets: [{ data: [costeMana, costeMana1, costeMana2, costeMana3, costeMana4, costeMana5, costeMana6, costeMana7], label: "Número de Cartas", backgroundColor: ["#3D203B"] }],
                     },
                     options: {
                         indexAxis: "x",
@@ -706,7 +706,7 @@
                     data: {
                         labels: ["Artefactos", "Criaturas", "Encantamientos", "Tierras", "Tierras Básicas", "Instantáneos", "Conjuros"],
                         datasets: [
-                            { data: [artifacs, creatures, enchantment, instants, lands, sorceries, basicLands], label: "Rareza de Cartas", backgroundColor: ["#684971", "#A06389", "#CB7CA2", "#E1AEA4", "#F9D8A1", "#FFECB2", "#FFFCF1"] },
+                            { data: [artifacs, creatures, enchantment, instants, lands, sorceries, basicLands], label: "Rareza de Cartas", backgroundColor: ["#FFCE9C", "#CF7862", "#A75252", "#773A4D", "#543246", "#3D203B", "#1A080E"] },
                         ],
                     },
                     options: {
@@ -722,7 +722,7 @@
                     type: "bar",
                     data: {
                         labels: NombreArtista,
-                        datasets: [{ data: [am, cr, df, dg, tw, jam, jb, rt, mab, ds, bs, qh, mt, rs, cb, dw, aw, mp, jm, dt, ra, ar, se, fj, kb], label: "Cantidad de Cartas", backgroundColor: ["#2C2851"] }],
+                        datasets: [{ data: [am, cr, df, dg, tw, jam, jb, rt, mab, ds, bs, qh, mt, rs, cb, dw, aw, mp, jm, dt, ra, ar, se, fj, kb], label: "Cantidad de Cartas", backgroundColor: ["#3D203B"] }],
                     },
                     options: {
                         indexAxis: "y",
